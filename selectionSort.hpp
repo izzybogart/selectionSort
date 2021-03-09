@@ -23,8 +23,9 @@ class Array {
 
                 void getArray() {
                         for(int i = 0; i < size; i++) {
-                                cout<<array[i]<<endl;
+                                cout<<array[i]<<", ";
                         }
+                        cout<<endl;
                 }
 
                 void selectionSort(Array<Data>*, int _size){
