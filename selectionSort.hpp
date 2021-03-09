@@ -1,7 +1,4 @@
-#ifdef ARRAY
-#define ARRAY
-
-#include <iostream>
+#include<iostream>
 #include <iomanip>
 using namespace std;
 
@@ -12,13 +9,16 @@ class Array {
                 Data *array;
 
         public:
-                void setArray(int _size) {
+                void setSize(int _size) {
                         size = _size;
-                        array = new Data [size];
-                        for(int i = 0; i < _size; i++) {
-                                Data element = rand() %100 + 1;
-                                array[i] = element;
-                        }
+                }
+
+                void initializeArray() {
+                        array = new Data[size];
+                }
+
+                void setArray(int elem, Data val) {
+                        array[elem] = val;
                 }
 
                 void getArray() {
@@ -27,7 +27,7 @@ class Array {
                         }
                 }
 
-                void selectionSort(Data *array, int _size) {
+                void selectionSort(Array<Data>*, int _size){
                         int smallest;
                         for(int i = 0; i < _size - 1; i++) {
                                 smallest = i;
@@ -40,11 +40,9 @@ class Array {
                         }
                 }
 
-                void swap(Data *element1Ptr, Data *element2Ptr){
+                void swap(Data * const element1Ptr, Data * const element2Ptr){
                         Data hold = *element1Ptr;
                         *element1Ptr = *element2Ptr;
                         *element2Ptr = hold;
                 }
 };
-
-#endif
