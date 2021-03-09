@@ -5,37 +5,28 @@
 #include <iomanip>
 using namespace std;
 
-template <class Data>
+template <typename Data>
 class Array {
         private:
                 int size;
                 Data *array;
 
         public:
-                void setSize(int _size) {
-                        size = _size;
-                }
-
-                int getSize() {
-                        return size;
-                }
-
-                array(int _size) {              //constructor
-                        setSize(_size);
-                        array = new Data [getSize()];
-                }
-
                 void setArray(int _size) {
-                        for(i = 0; i < _size; i++) {
-                                array[i] = Data rand() %100 + 1;
+                        size = _size;
+                        array = new Data [size];
+                        for(int i = 0; i < _size; i++) {
+                                Data element = rand() %100 + 1;
+                                array[i] = element;
                         }
                 }
 
                 void getArray() {
                         for(int i = 0; i < size; i++) {
-                                cout<<array[i]<<", "<<endl;
+                                cout<<array[i]<<endl;
                         }
                 }
+
                 void selectionSort(Data *array, int _size) {
                         int smallest;
                         for(int i = 0; i < _size - 1; i++) {
@@ -46,7 +37,7 @@ class Array {
                                         }
                                 }
                                 swap(&array[i], &array[smallest]);
-                         }
+                        }
                 }
 
                 void swap(Data *element1Ptr, Data *element2Ptr){
